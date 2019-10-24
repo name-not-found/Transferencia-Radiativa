@@ -1,4 +1,5 @@
 from astropy.modeling.blackbody import blackbody_lambda
+kb  = 1.38e-16 # [ergK-1]
 c = 3e10 #cm/s
 # Source function [erg/cm2 sec cm ster]
 def S(x, wl):
@@ -21,3 +22,6 @@ def k(x, wl):
 # adimensional - optical depth
 def tau(dx, x, wl):
 	return (dx/2.0)*(k(x-dx, wl)+k(x, wl))
+
+def rayleigh(I, wl):
+	return I.value * pow(wl, 4)/ (2.0*c*kb)

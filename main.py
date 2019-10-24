@@ -26,15 +26,16 @@
 """
 #libraries
 import math
+from tqdm import tqdm 
 
 #files
-from funciones import tau, S
+from funciones import tau, S, rayleigh
 
 c = 3e10 #cm/s
-
-N = 6.96e5
+kb  = 1.38e-16 # [ergK-1]
+N = 6.96e3
 i0 = 0. # ergios*unidad de area*unidad de tiempo*unidad de longitud de onda*unidad de radian
-dx = 1e5 # cm
+dx = 100e5 # cm
 nu = 1e8 # Hz
 wl = c/nu # wave length
 
@@ -42,7 +43,8 @@ layers = range(1, int(N)+1)
 
 i=i0
 x = 0.
-for _ in layers:
+for _ in tqdm(layers):
     x = float(_)*dx
     i = i*math.exp(-tau(dx, x, wl))+S(x, wl)*(1.-math.exp(-tau(dx, x, wl)))
-    print(i)
+    pass
+print("%e" %rayleigh(i))
