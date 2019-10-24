@@ -1,21 +1,23 @@
 from astropy.modeling.blackbody import blackbody_lambda
-
+c = 3e10 #cm/s
 # Source function [erg/cm2 sec cm ster]
 def S(x, wl):
 	return blackbody_lambda(wl,  T(x))
 
 # Temperature Model [K]
 def T(x):
-    return 5800.0
+    return 1e6
 
 # Density model [cm-3]
 def n(x):
-	return 1.0
+	return 1e7
 
 # opacity [cm-1]
-def k(x):
-    return 0.5*T(x)*n(x)
+def k(x, wl):
+    # REF Dulk (1985) eq. 21
+    nu = c/wl
+    return 0.2 * pow(n(x),2) * pow(T(x),-3/2) * pow(nu ,-2)
 
 # adimensional - optical depth
-def tau(dx, x):
-	return (dx/2.0)*(k(x-dx)+k(x))
+def tau(dx, x, wl):
+	return (dx/2.0)*(k(x-dx, wl)+k(x, wl))
