@@ -3,6 +3,7 @@
 # radiative transfer equation
 # Copyright (C) <2019>  Angelica Nayeli Rivas Bedolla (angelica.nayeli@comunidad.unam.mx)
 #                       Pablo Clemente Moreno (clemnte@comunidad.unam.mx)
+#                       Gilberto Carlos Domínguez Aguilar (gilberto.carlos@comuniadad.unam.mx)
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -27,7 +28,7 @@
 import math
 
 #files
-from funciones import *
+from funciones import tau, S
 
 N = 10
 i0 = 0.  #ergios*unidad de area*unidad de tiempo*unidad de longitud de onda*unidad de radian
