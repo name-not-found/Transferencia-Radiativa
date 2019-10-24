@@ -4,8 +4,11 @@ def tau(dx, x):
 
 # opacity [cm-1]
 def k(x):
-    return 0.5* x
+    return 0.5* T(x)
 
 # Source function [erg/cm2 sec cm ster]
 def S(x):
-	return 1.* x
+	return 1.* T(x)
+
+def T(x):
+    return 1.0
