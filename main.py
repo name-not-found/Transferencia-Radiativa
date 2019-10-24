@@ -33,10 +33,12 @@ N = 10
 i0 = 0.  #ergios*unidad de area*unidad de tiempo*unidad de longitud de onda*unidad de radian
 dx = 2.0  #cm
 
-layers = range(N)
+layers = range(1, N+1)
 
 i=i0
+x = 0.
 for _ in layers:
-	i = i*math.exp(-tau(dx))+S()*(1.-math.exp(-tau(dx)))
-	print(i)
+    x = float(_)*dx
+    i = i*math.exp(-tau(dx, x))+S(x)*(1.-math.exp(-tau(dx, x)))
+    print(i)
 
