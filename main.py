@@ -33,6 +33,7 @@ from funciones import tau, S
 N = 10
 i0 = 0.  #ergios*unidad de area*unidad de tiempo*unidad de longitud de onda*unidad de radian
 dx = 2.0  #cm
+wl = 6565.
 
 layers = range(1, N+1)
 
@@ -40,6 +41,5 @@ i=i0
 x = 0.
 for _ in layers:
     x = float(_)*dx
-    i = i*math.exp(-tau(dx, x))+S(x)*(1.-math.exp(-tau(dx, x)))
+    i = i*math.exp(-tau(dx, x))+S(x, wl)*(1.-math.exp(-tau(dx, x)))
     print(i)
-
