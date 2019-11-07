@@ -3,7 +3,7 @@ kb  = 1.38e-16 # [ergK-1]
 c = 3e10 #cm/s
 # Source function [erg/cm2 sec cm ster]
 def S(x, wl):
-	return blackbody_lambda(wl,  T(x))
+	return blackbody_lambda(wl,  T(x)) * 1e-8 # A-1 to cm-1
 
 # Temperature Model [K]
 def T(x):
