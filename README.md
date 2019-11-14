@@ -25,4 +25,4 @@ Each one of these either increase (+) or decrease (-) the radiation.
 
 ## References
 
-[Ross-Bannister-2007] (http://www.met.reading.ac.uk/~ross/Science/RadTrans.pdf). 
+[ref1] (http://www.met.reading.ac.uk/~ross/Science/RadTrans.pdf). 
