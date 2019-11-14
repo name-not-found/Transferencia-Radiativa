@@ -24,7 +24,7 @@ from tqdm import tqdm
 import matplotlib.pyplot as plt
 
 #files
-from funciones import tau, S, rayleigh
+from funciones import tau, S, rayleigh, c
 
 # c = 3e10 #cm/s
 # kb  = 1.38e-16 # [ergK-1]
