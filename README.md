@@ -7,6 +7,16 @@ The transfer of energy in the form of electromagnetic radiation is one of the mo
 
 ## Introduction
 
+As a beam of energy travels space, it encounters several conditions wich modify the radiance in several ways:
+
+    1. Absorption
+    2. Emission 
+    3. Scattering
+
+Each one of these either increase (+) or decrease (-) the radiation. 
+
+
+
 ## Methodology
 
 ## Implementation
@@ -14,3 +24,5 @@ The transfer of energy in the form of electromagnetic radiation is one of the mo
 ## Results
 
 ## References
+
+[Ross-Bannister-2007] (http://www.met.reading.ac.uk/~ross/Science/RadTrans.pdf). 
