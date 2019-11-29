@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding:utf-8 -*-
+
 # radiative transfer equation
 # Copyright (C) <2019>  Angelica Nayeli Rivas Bedolla (angelica.nayeli@comunidad.unam.mx)
 #                       Pablo Clemente Moreno (clemnte@comunidad.unam.mx)
@@ -29,11 +29,10 @@ from funciones import tau, S, rayleigh, c
 # c = 3e10 #cm/s
 # kb  = 1.38e-16 # [ergK-1]
 N = 6.96e2 # number of points in the raypath
-i0 = 2.45e13 # ergios*unidad de area*unidad de tiempo*unidad de longitud de onda*unidad de radian
-# i0 = 0.
-dx = 1 # cm
-nu = 6e14 # Hz - between red and violet light
-wl = c/nu # wave length 4.85e-5
+i0 = 0. # ergios*unidad de area*unidad de tiempo*unidad de longitud de onda*unidad de radian
+dx = 1e3 # km
+nu = 1e8 # Hz
+wl = c/nu # wave length
 
 layers = range(1, int(N)+1)
 
@@ -45,7 +44,6 @@ Y = []
 for _ in tqdm(layers):
     x = float(_)*dx
     i = i*math.exp(-tau(dx, x, wl))+S(x, wl)*(1.-math.exp(-tau(dx, x, wl)))
-    # print(i)
     # print("%e\t%e"%x,I)
     X.append(x)
     Y.append(rayleigh(i, wl)) 
@@ -54,6 +52,6 @@ print("%e" %rayleigh(i, wl))
 
 fig, ax = plt.subplots()
 ax.plot(X,Y)
-# ax.set_xscale('log')
-# ax.set_yscale('log')
+ax.set_xscale('log')
+ax.set_yscale('log')
 plt.show()
