@@ -34,11 +34,11 @@ Where:
  ![solution](img/sol.gif)
 
 Where: 
-- ![Source f](img/Source.gif) is the **Souce Function**,
+- ![Source f](img/Source.gif) is the **Source Function**,
 
 - ![tau](img/tau.gif) is the **optical depth**,
 
-- ![Intensity](img/Iv.gif) is the specific intensity at iteration **i**.
+- ![Intensity](img/Iv.gif) is the **pecific intensity** at iteration **i**.
 
 
 ## Implementation
