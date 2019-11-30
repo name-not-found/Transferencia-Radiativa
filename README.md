@@ -38,7 +38,7 @@ Where:
 
 - ![tau](img/tau.gif) is the **optical depth**,
 
-- ![Intensity](img/Iv.gif) is the **pecific intensity** at iteration **i**.
+- ![Intensity](img/Iv.gif) is the **specific intensity** at iteration **i**.
 
 
 ## Implementation
