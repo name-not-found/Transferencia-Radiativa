@@ -78,6 +78,17 @@ The funciones.py module defines the components needed to solve the **RTE** and a
 
 ## Results
 
+We show the following figure:
+
+![result](img/res.png)
+
+As we can see, the model works to a point; we can now see how **light would be absorbed** by the cloud starting on the top. 
+
+We are using a high-density water cloud (the absoption cooeficcient is constant). 
+
+The model tends to 0 without limit because we have not yet programmed a system wich can diferentiate the limit of the cloud. Thus, we cannot compare the **output specific intensity** 
+and cloud thickness.
+
 ## References
 
 - [ref1] Bannister, R. (2007). The Radiative Transfer Equation. [ebook] Available at: http://www.met.reading.ac.uk/~ross/Science/RadTrans.pdf [Accessed 29 Nov. 2019].<br>
