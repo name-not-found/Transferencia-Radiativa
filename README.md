@@ -1,17 +1,17 @@
-Solving Radiative Transfer Equation to calculate clouds opacity and their width.
+Solving Radiative Transfer Equation to obtain clouds width.
 ===================================
 
 ## Abstract
 
-The transfer of energy in the form of electromagnetic radiation is one of the most interesting phenomena known to men. The fields of application are both diverse and useful. In this project we aim to solve the **radiative transfer equation to calculate clouds opacity** by means of numerical aproximation, modeling conditions similar to those of the **Sun**, the closest star, to mesure parameters like __temperature__ and __density__ at a given altitude on the solar atmosphere and then calculate their width.
+The transfer of energy in the form of electromagnetic radiation is one of the most interesting phenomena. The fields of application are both diverse and useful. In this project we aim to solve the **radiative transfer equation to calculate clouds thikness** by means of numerical aproximation.
 
 ## Introduction
 
 As a beam of energy travels space, it encounters several conditions wich modify the radiance in several ways:
 
-    1. Absorption
-    2. Emission 
-    3. Scattering
+1. Absorption
+2. Emission 
+3. Scattering
 
 Each one of these either increase (+) or decrease (-) the radiation. 
 ### Clouds 
@@ -19,6 +19,27 @@ In meteorology, a cloud is an aerosol consisting of a visible mass of minute liq
 For this modeling we consider the components of a cloud, basically clouds are composed of water particles. Tiny particles of water are densely packed and sunlight cannot penetrate far into the cloud before it is reflected out, giving a cloud its characteristic white color, especially when viewed from the top. Cloud droplets tend to scatter light efficiently, so that the intensity of the solar radiation decreases with depth into the gases. As a result, the cloud base can vary from a very light to very-dark-grey depending on the cloud's thickness and how much light is being reflected or transmitted back to the observer.
 
 ## Methodology
+
+To solve this, we use the **radiative transfer equation**:
+
+![Radiative transfer Eq](img/rte.gif)
+
+Where: 
+- ![Opacity F](img/Kv.gif) are the **absortions** or  the **opacity function** at wavelength **v**.
+
+- ![emission](img/epsv.gif) are the **emissions** at wavelength **v**. 
+
+ And it's solution:
+
+ ![solution](img/sol.gif)
+
+Where: 
+- ![Source f](img/Source.gif) is the **Souce Function**,
+
+- ![tau](img/tau.gif) is the **optical depth**,
+
+- ![Intensity](img/Iv.gif) is the specific intensity at iteration **i**.
+
 
 ## Implementation
 

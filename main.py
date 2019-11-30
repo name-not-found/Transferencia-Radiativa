@@ -28,12 +28,12 @@ from funciones import tau, S, rayleigh, c
 
 # c = 3e10 #cm/s
 # kb  = 1.38e-16 # [ergK-1]
-N = 6.96e2 # number of points in the raypath
-i0 = 2.45e13 # ergios*unidad de area*unidad de tiempo*unidad de longitud de onda*unidad de radian
+N = 2.0e4 # number of layers in the raypath
+i0 = 2438081.389617375 #[erg/ A sec cm2 ster] [blackbody-lambda(4760, 5700)]
 # i0 = 0.
 dx = 1 # cm
-nu = 6e14 # Hz - between red and violet light
-wl = c/nu # wave length 4.85e-5
+nu = 629816088235294 # Hz - cian
+wl = c/nu # wave length 4.85e-5 cm
 
 layers = range(1, int(N)+1)
 
@@ -54,6 +54,6 @@ print("%e" %rayleigh(i, wl))
 
 fig, ax = plt.subplots()
 ax.plot(X,Y)
-# ax.set_xscale('log')
-# ax.set_yscale('log')
+ax.set_xscale('log')
+ax.set_yscale('log')
 plt.show()
