@@ -7,7 +7,7 @@ The transfer of energy in the form of electromagnetic radiation is one of the mo
 
 ## Introduction
 
-As a beam of energy travels space, it encounters several conditions wich modify the radiance in several ways:
+As a beam of energy travels space, it encounters several conditions which modify the radiance in several ways:
 
 1. Absorption
 2. Emission 
