@@ -39,9 +39,42 @@ Where:
 - ![tau](img/tau.gif) is the **optical depth**,
 
 - ![Intensity](img/Iv.gif) is the **specific intensity** at iteration **i**.
+In this project, we aim to obtain the thickness of a water cloud by comparing the light that enters with that wich comes out of the cloud.
+With this we could mesure other things like water density and thus other properties that could be of potential interest to metheorological forecasting and the aerospace industry.  
+
+### **Initial contidions:**
+
+We start our simulation with the emission of a black-body-like object such as the Sun and calculate the initial emition
+
+- ![I 0](img/I0.gif)
+
+
+Obtained from **astropy.modeling.blackbody.blackbody_lambda**
+with 4760 angstrom and 5700 K as parameters.
+
+We would like to solve the equation for the whole visible spectra, but for simplicity we use the color cian; we can locate cian at the given wavelength 4760 Angstrom or 629'816'088'235'294 Hz.
+
+#### **Water and the ES**
+As we know, water is transparent, wich means water interactions with light are little in the visible spectra; however these are the interactions we are looking for, in particular, how water interacts in the form of liquid, gas and solid state at the given wavelength. 
+
+For simplicity, we supose clouds do not emit, i.e. Source function is constant and **0** thus removing the right side of the equation. So the only thing we account are the absorptions at the given wavelength. 
+
 
 
 ## Implementation
+
+We use code writen in pure Python. Python is simple and easy to read wich makes it apropriate for this task.
+The code is divided in several components:
+
+- main.py
+- funciones.py
+- the data
+
+The main module accounts for the calls to functions, defining global parameters (such as the light speed and Boltzman constant) needed for calculations and of course the main loop in wich we integrate the solution. 
+
+The funciones.py module defines the components needed to solve the **RTE** and additional functionality such as data reading.
+
+
 
 ## Results
 
