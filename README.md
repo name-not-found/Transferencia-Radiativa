@@ -20,7 +20,7 @@ For this modeling we consider the components of a cloud, basically clouds are co
 
 ## Methodology
 
-To perform this task, we used the **radiative transfer equation** define as:
+To perform this task, we used the **radiative transfer equation** defined as:
 
 ![Radiative transfer Eq](img/rte.gif)
 
@@ -59,22 +59,22 @@ We would like to solve the equation for the whole visible spectra, but for simpl
 #### **Water and the ES**
 As we know, water is transparent, wich means water interactions with light are little in the visible spectra; however these are the interactions we are looking for, in particular, how water interacts in the form of liquid, gas and solid state at the given wavelength. 
 
-For simplicity, we supose clouds do not emit, i.e. Source function is constant and **0** thus removing the right side of the equation. So the only thing we account are the absorptions at the given wavelength. 
+For simplicity, we supposed that clouds do not emit, i.e. Source function is constant and **0** therefore the right side of the equation was removed. So the only thing we considered were the absorptions at the given wavelength. 
 
 
 
 ## Implementation
 
-We use code writen in pure Python. Python is simple and easy to read wich makes it apropriate for this task.
+We used code written in pure Python. Python is simple and easy to read which makes it apropriate for this task.
 The code is divided in several components:
 
 - main.py
 - funciones.py
 - the data
 
-The main module accounts for the calls to functions, defining global parameters (such as the light speed and Boltzman constant) needed for calculations and of course the main loop in wich we integrate the solution. 
+The main module accounts for the calls to functions, defining global parameters (such as the light speed and Boltzman constant) needed for the calculations and of course the main loop in which we have integrated the solution. 
 
-The funciones.py module defines the components needed to solve the **RTE** and additional functionality such as data reading.
+The funciones.py module defines the components needed to solve the **RTE** and additional functionalities such as data reading.
 
 
 
@@ -84,11 +84,11 @@ We show the following figure:
 
 ![result](img/res.png)
 
-As we can see, the model works to a point; we can now see how **light would be absorbed** by the cloud starting on the top. 
+As we can see, the model works at a certain point; we can now see how **light would be absorbed** by the cloud starting on the top. 
 
 We are using a high-density water cloud (the absoption cooeficcient is constant). 
 
-The model tends to 0 without limit because we have not yet programmed a system wich can diferentiate the limit of the cloud. Thus, we cannot compare the **output specific intensity** 
+The model tends to 0 without limit because we have not yet programmed a system which can diferentiate the limit of the cloud. We cannot compare this with the **output specific intensity** 
 and cloud thickness.
 
 ## References
