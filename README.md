@@ -39,6 +39,8 @@ Where:
 - ![tau](img/tau.gif) is the **optical depth**,
 
 - ![Intensity](img/Iv.gif) is the **specific intensity** at iteration **i**.
+
+
 In this project, we aim to obtain the thickness of a water cloud by comparing the light that enters with that wich comes out of the cloud.
 With this we could mesure other things like water density and thus other properties that could be of potential interest to metheorological forecasting and the aerospace industry.  
 
