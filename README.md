@@ -57,13 +57,13 @@ We solved the equation for the whole visible spectrum, but for simplicity we use
 #### **Water and the ES**
 As we know, water is transparent, wich means water interactions with light are minimal in the visible spectrum; however these are the interactions we are looking for, in particular, how water interacts in liquid, gas and solid states at the given wavelength. 
 
-For simplicity, we supposed that clouds do not emit, Source function is constant and **0** therefore the right side of the equation was removed. So the only things we have considered were the absorptions at the given wavelength. 
+For simplicity, we supposed that clouds do not emit, Source function is constant equal to **0** therefore the right side of the equation was removed. So the only things we have considered were the absorptions at the given wavelength. 
 
 
 
 ## Implementation
 
-We used code writen in pure Python. Python is simple and easy to read wich makes it apropriate for this task.
+We used code written just in Python. Python is simple and easy to read wich makes it apropriate for this task.
 The code is divided in several components:
 
 - main.py
@@ -72,7 +72,7 @@ The code is divided in several components:
 
 The main module accounts for the calls to functions, defining global parameters (such as the light speed and Boltzman constant) needed for calculations and of course the main loop in wich we integrate the solution. 
 
-The funciones.py module defines the components needed to solve the **RTE** and additional functionality such as data reading.
+The funciones.py module defines the components needed to solve the **RTE** and additional functionalities such as data reading.
 
 
 
@@ -82,7 +82,7 @@ We show the following figure:
 
 ![result](img/res.png)
 
-As we can see, the model works to a point; we can now see how **light would be absorbed** by the cloud starting on the top. 
+As we can see, the model works at certain point; we can now see how **light would be absorbed** by the cloud starting on the top. 
 
 We used a high-density water cloud (the absoption cooeficcient is constant). 
 
