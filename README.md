@@ -26,5 +26,5 @@ For this modeling we consider the components of a cloud, basically clouds are co
 
 ## References
 
-[ref1] (http://www.met.reading.ac.uk/~ross/Science/RadTrans.pdf). 
-[ref2] (https://en.wikipedia.org/wiki/Cloud).
+[ref1] (http://www.met.reading.ac.uk/~ross/Science/RadTrans.pdf).<br>
+[ref2] (https://en.wikipedia.org/wiki/Cloud).<br>
