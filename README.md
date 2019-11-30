@@ -44,7 +44,7 @@ With this we can measure other things like water density and thus other properti
 
 ### **Initial contidions:**
 
-We start our simulation with the emission of a black-body-like object such as the Sun and calculate the initial emition
+We started our simulation with the emission of a black-body-like object such as the Sun and calculate the initial emition
 
 - ![I 0](img/I0.gif)
 
@@ -63,7 +63,7 @@ For simplicity, we supose clouds do not emit, Source function is constant and **
 
 ## Implementation
 
-We use code writen in pure Python. Python is simple and easy to read wich makes it apropriate for this task.
+We used code writen in pure Python. Python is simple and easy to read wich makes it apropriate for this task.
 The code is divided in several components:
 
 - main.py
