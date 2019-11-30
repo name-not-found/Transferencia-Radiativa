@@ -52,12 +52,12 @@ We started our simulation with the emission of a black-body-like object such as 
 Obtained from **astropy.modeling.blackbody.blackbody_lambda**
 with 4760 angstrom and 5700 K as parameters.
 
-We solve the equation for the whole visible spectrum, but for simplicity we use the color cyan; we can locate cyan at the given wavelength 4760 Angstrom or 629'816'088'235'294 Hz.
+We solved the equation for the whole visible spectrum, but for simplicity we used the color cyan; we can locate cyan at the given wavelength 4760 Angstrom or 629'816'088'235'294 Hz.
 
 #### **Water and the ES**
 As we know, water is transparent, wich means water interactions with light are minimal in the visible spectrum; however these are the interactions we are looking for, in particular, how water interacts in liquid, gas and solid states at the given wavelength. 
 
-For simplicity, we supose clouds do not emit, Source function is constant and **0** thus removing the right side of the equation. So the only things we take into account are the absorptions at the given wavelength. 
+For simplicity, we supposed that clouds do not emit, Source function is constant and **0** therefore the right side of the equation was removed. So the only things we have considered were the absorptions at the given wavelength. 
 
 
 
@@ -84,7 +84,7 @@ We show the following figure:
 
 As we can see, the model works to a point; we can now see how **light would be absorbed** by the cloud starting on the top. 
 
-We are using a high-density water cloud (the absoption cooeficcient is constant). 
+We used a high-density water cloud (the absoption cooeficcient is constant). 
 
 The model tends to 0 without limit because we have not yet programmed a system wich can diferentiate the limit of the cloud. Thus, we cannot compare the **output specific intensity** 
 and cloud thickness.
