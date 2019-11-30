@@ -20,7 +20,7 @@ For this modeling we consider the components of a cloud, basically clouds are co
 
 ## Methodology
 
-To solve this, we use the **radiative transfer equation**:
+To perform this task, we used the **radiative transfer equation** define as:
 
 ![Radiative transfer Eq](img/rte.gif)
 
