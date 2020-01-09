@@ -24,16 +24,14 @@ from tqdm import tqdm
 import matplotlib.pyplot as plt
 
 #files
-from funciones import tau, S, rayleigh, c
+from funciones import tau, S, rayleigh, c, inter, make_temp_profile, make_density_profile
 
-# c = 3e10 #cm/s
-# kb  = 1.38e-16 # [ergK-1]
-N = 2.0e4 # number of layers in the raypath
-i0 = 2438081.389617375 #[erg/ A sec cm2 ster] [blackbody-lambda(4760, 5700)]
-# i0 = 0.
-dx = 1 # cm
-nu = 629816088235294 # Hz - cian
-wl = c/nu # wave length 4.85e-5 cm
+# procedure
+N = 2.0e2 # number of layers in the raypath
+i0 = 1.22717111e-06 # erg / (Angstrom cm2 s sr) blackbody_lambda(1.4e7, 5700)
+dx = 10 # cm
+nu = 214e9 # 214 GHz (Rosenkranz) 
+wl = c/nu # wave length
 
 layers = range(1, int(N)+1)
 
@@ -54,6 +52,6 @@ print("%e" %rayleigh(i, wl))
 
 fig, ax = plt.subplots()
 ax.plot(X,Y)
-ax.set_xscale('log')
-ax.set_yscale('log')
+#ax.set_xscale('log')
+#ax.set_yscale('log')
 plt.show()

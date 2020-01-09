@@ -1,40 +1,65 @@
 from astropy.modeling.blackbody import blackbody_lambda
 from scipy.interpolate import interp1d
 import random
+import numpy as np
 # from astropy import units as u
 
 kb  = 1.38e-16 # [ergK-1] 
 c = 3e10 #cm/s
 
-# Temperature Model [K]
-def T(x):
-    with open("T.dat", "r") as f:
-        T_dat = f.readlines()
-    z = []
-    Tr = []
-    for data in T_dat:
-        if data[0] != '#':
-            a,b = data.split()
-            z.append(float(a))
-            Tr.append(float(b))
+def inter(x,y):
+    return interp1d(x,y)
     
-    f = interp1d(z,Tr)
-    return f(x)
+def make_density_profile():
+    mean = 0.3
+    std = .5
+    num_samples = 1000
+    distance = np.linspace(0,3000,num_samples)
+    samples = np.random.normal(mean, std, size=num_samples)
+    n = inter(distance, samples)
+    
+    return n
 
-# Density model [cm-3]
-def n(x):
-    with open("n.dat", "r") as f:
-        n_dat = f.readlines()
-    z = []
-    nr = []
-    for data in n_dat:
-        if data[0] != "#":
-            a,b = data.split()
-            z.append(float(a))
-            nr.append(float(b))
+def make_temp_profile():
+    mean = 300
+    std = 10
+    num_samples = 1000
+    samples = np.random.normal(mean, std, size=num_samples)
+    distance = np.linspace(0,3000, num_samples)
+    t = inter(distance, samples)
+
+    return t
+
+t, n = make_temp_profile(), make_density_profile()
+# Temperature Model [K]
+# def T(x):
+    # with open("T.dat", "r") as f: 
+    #     T_dat = f.readlines()
+    # z = []
+    # Tr = []
+    # for data in T_dat:
+    #     if data[0] != '#':
+    #         a,b = data.split()
+    #         z.append(float(a))
+    #         Tr.append(float(b))
     
-    f = interp1d(z,nr)
-    return f(x)
+    # f = interp1d(z,Tr)
+    # return t(x)
+
+# Density model [kg/m3] https://www.mentalfloss.com/article/49786/how-much-does-cloud-weigh
+# def n(x):
+    # with open("n.dat", "r") as f:
+    #     n_dat = f.readlines()
+    # z = []
+    # nr = []
+    # for data in n_dat:
+    #     if data[0] != "#":
+    #         a,b = data.split()
+    #         z.append(float(a))
+    #         nr.append(float(b))
+    
+    # f = interp1d(z,nr)
+    # return n(x)                 
 	
 # Source function [erg/cm2 sec cm ster]
 def S(x, wl):
@@ -44,15 +69,14 @@ def S(x, wl):
 
 # opacity [cm-1]
 def k(x, wl):
-    # REF Dulk (1985) eq. 21
-    # 0.8 - 12.5 mu []
-    # nu = c/wl
-    #abs_range = range(0.01, 0.3)
-    return random.uniform(0.1, 30.)
-    #return 25
-    # return 1e5 * 0.2 * pow(n(x),2) * pow(T(x),-3/2) * pow(nu ,-2)
-    # return 0.8
-
+    nu = c/wl
+    theta = 300./t(x)
+    # theta = 1
+    #P = 0.0005*kb*300
+    P = n(x)*kb*t(x)
+    C = 7.9e-6
+    return (pow(nu, -2) * theta * P) / C
+    
 # adimensional - optical depth
 def tau(dx, x, wl):
 	return (dx/2.0)*(k(x-dx, wl)+k(x, wl))
@@ -60,3 +84,5 @@ def tau(dx, x, wl):
 def rayleigh(I, wl):
 	#return I.value * pow(wl, 4)/ (2.0*c*kb)
 	return I * pow(wl, 4)/ (2.0*c*kb)
+
+
