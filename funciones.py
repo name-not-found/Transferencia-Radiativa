@@ -11,21 +11,30 @@ def inter(x,y):
     return interp1d(x,y)
     
 def make_density_profile():
-    mean = 0.3
-    std = .5
-    num_samples = 1000
-    distance = np.linspace(0,3000,num_samples)
+    """
+    WATER PARAMETERS:
+    0.9970479 g/cm3 at 25 °C [wikipedia]
+    3.34e22 particles per gram (according to a molar mass of 
+    18.01528 gmol-1 [Wikipedia])
+    """
+    mean = 3.34e22
+    std = 1e2
+    num_samples = 10000
+    distance = np.linspace(0,2000000,num_samples)
     samples = np.random.normal(mean, std, size=num_samples)
     n = inter(distance, samples)
     
     return n
 
 def make_temp_profile():
+    """
+    300 K or 26.85 Celsius
+    """
     mean = 300
     std = 10
-    num_samples = 1000
+    num_samples = 10000
     samples = np.random.normal(mean, std, size=num_samples)
-    distance = np.linspace(0,3000, num_samples)
+    distance = np.linspace(0,2000000, num_samples)
     t = inter(distance, samples)
 
     return t

@@ -27,9 +27,9 @@ import matplotlib.pyplot as plt
 from funciones import tau, S, rayleigh, c, inter, make_temp_profile, make_density_profile
 
 # procedure
-N = 2.0e2 # number of layers in the raypath
-i0 = 1.22717111e-06 # erg / (Angstrom cm2 s sr) blackbody_lambda(1.4e7, 5700)
-dx = 10 # cm
+N = 2.0e4 # number of layers in the raypath (a total of 2 km)
+i0 = 1.22717111e-06 * 1e8 # erg / (cm cm2 s sr) blackbody_lambda(1.4e7, 5700)
+dx = 100 # cm
 nu = 214e9 # 214 GHz (Rosenkranz) 
 wl = c/nu # wave length
 
@@ -52,6 +52,6 @@ print("%e" %rayleigh(i, wl))
 
 fig, ax = plt.subplots()
 ax.plot(X,Y)
-#ax.set_xscale('log')
-#ax.set_yscale('log')
+ax.set_xscale('log')
+ax.set_yscale('log')
 plt.show()
