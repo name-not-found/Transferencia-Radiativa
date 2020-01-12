@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+# -*- coding:utf-8 -*-
 # radiative transfer equation
 # Copyright (C) <2019>  Angelica Nayeli Rivas Bedolla (angelica.nayeli@comunidad.unam.mx)
 #                       Pablo Clemente Moreno (clemnte@comunidad.unam.mx)
@@ -22,36 +22,53 @@
 import math
 from tqdm import tqdm 
 import matplotlib.pyplot as plt
-
+import matplotlib
 #files
 from funciones import tau, S, rayleigh, c
 
-# c = 3e10 #cm/s
-# kb  = 1.38e-16 # [ergK-1]
-N = 6.96e2 # number of points in the raypath
-i0 = 0. # ergios*unidad de area*unidad de tiempo*unidad de longitud de onda*unidad de radian
-dx = 1e3 # km
-nu = 1e8 # Hz
+# procedure
+N = 2.0e4 # number of layers in the raypath (a total of 2 km)
+i0 = 1.22717111e-06 * 1e8 # erg / (cm cm2 s sr)
+                          #blackbody_lambda(1.4e7, 5700)
+dx = 1 # cm
+nu = 214e9 # 214 GHz (Rosenkranz) 
 wl = c/nu # wave length
 
 layers = range(1, int(N)+1)
 
 i=i0
 x = 0.
-
+ii=0
+init=0
 X = []
 Y = []
 for _ in tqdm(layers):
+    
     x = float(_)*dx
     i = i*math.exp(-tau(dx, x, wl))+S(x, wl)*(1.-math.exp(-tau(dx, x, wl)))
+    if ii==0:
+      init = rayleigh(i,wl)  
+    # print(i)
     # print("%e\t%e"%x,I)
     X.append(x)
-    Y.append(rayleigh(i, wl)) 
+    Y.append(rayleigh(i, wl))
+    ii+=1
     pass
-print("%e" %rayleigh(i, wl))
+
+print('rayleigh initial: %e' %init)
+print("rayleigh outcome: %e" %rayleigh(i, wl))
+print("Diferential: {}".format(rayleigh(i,wl) - init ))
 
 fig, ax = plt.subplots()
-ax.plot(X,Y)
+ax.plot(X,Y, label="Specific Intensity", c="y")
 ax.set_xscale('log')
-ax.set_yscale('log')
+# ax.set_yscale('log')
+
+for label in ax.yaxis.get_ticklabels():
+    label.set_rotation(45)
+
+plt.xlabel("Vertical distance in cm")
+plt.ylabel("erg / cm $cm^{2}$ ster s")
+plt.title('Absorption of radiation at 214Ghz (microwave)\nby a 100m thick water cloud')
+plt.legend()
 plt.show()
