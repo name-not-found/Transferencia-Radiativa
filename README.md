@@ -80,7 +80,7 @@ The funciones.py module defines the components needed to solve the **RTE** and a
 
 We show the following figure:
 
-![result](img/res.png)
+![result](img/rte_1.png)
 
 As we can see, the model works at certain point; we can now see how **light would be absorbed** by the cloud starting on the top. 
 
