@@ -3,7 +3,7 @@ Solving Radiative Transfer Equation to obtain cloud's width.
 
 ## Abstract
 
-The transfer of energy in the form of electromagnetic radiation is one of the most interesting phenomena. The fields of application are both diverse and useful. In this project we aim to solve the **radiative transfer equation to simulate the absorption of radiation by a water cloud at the microwave region (214 Ghz).
+The transfer of energy in the form of electromagnetic radiation is one of the most interesting phenomena. The fields of application are both diverse and useful. In this project we aim to solve the **radiative transfer equation to simulate the absorption of radiation by a water cloud at the microwave region (214 Ghz).**
 
 ## Introduction
 
@@ -42,7 +42,7 @@ Where:
 
 
 In this project, we aim to calculate the thickness of a water cloud by comparing the light that enters with the light that comes out of the cloud.
-With this we can measure other things like water density and thus other properties that can be of potential interest to metheorological forecasting and the aerospace industry.  
+With this we can measure other things like water density and thus other properties that can be of potential interest to meteorological forecasting and the aerospace industry.  
 
 ### **Initial contidions:**
 
@@ -61,15 +61,13 @@ The code is divided in several components:
 - main.py
 - funciones.py
 
-The main module accounts for the calls to functions, defining global parameters (such as the light speed and Boltzman constant) needed for calculations and of course the main loop in wich we integrate the solution. 
-
-The funciones.py module defines the components needed to solve the **RTE** and additional functionalities such as data reading.
-
+The main file is where all functions are called and integrated as one and where we defined global parameters (such as the light speed and Boltzmann constant) needed for calculations and of course the main loop in which we have integrated for the solution.
+The funciones.py module defines the components needed to solve the RTE.
 
 
 ## Results
 
-We show the following figure:
+As a result of our approximation we got the  following figure:
 
 ![result](img/rte_1.png)
 
