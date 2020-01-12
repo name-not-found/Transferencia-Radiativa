@@ -3,7 +3,7 @@ Solving Radiative Transfer Equation to obtain cloud's width.
 
 ## Abstract
 
-The transfer of energy in the form of electromagnetic radiation is one of the most interesting phenomena. The fields of application are both diverse and useful. In this project we aim to solve the **radiative transfer equation to calculate clouds thickness** by means of numerical aproximation.
+The transfer of energy in the form of electromagnetic radiation is one of the most interesting phenomena. The fields of application are both diverse and useful. In this project we aim to solve the **radiative transfer equation to simulate the absorption of radiation by a water cloud at the microwave region (214 Ghz).
 
 ## Introduction
 
@@ -39,25 +39,17 @@ Where:
 - ![tau](img/tau.gif) is the **optical depth**.
 
 - ![Intensity](img/Iv.gif) is the **specific intensity** at iteration **i**.
+
+
 In this project, we aim to calculate the thickness of a water cloud by comparing the light that enters with the light that comes out of the cloud.
 With this we can measure other things like water density and thus other properties that can be of potential interest to metheorological forecasting and the aerospace industry.  
 
 ### **Initial contidions:**
 
-We started our simulation with the emission of a black-body-like object such as the Sun and calculate the initial emition
-
-- ![I 0](img/I0.gif)
+We started our simulation with the emission of a black-body-like object such as the Sun and calculate the initial emition obtained from **astropy.modeling.blackbody.blackbody_lambda** with  1.4e7 angstrom and 5700 K as parameters.
 
 
-Obtained from **astropy.modeling.blackbody.blackbody_lambda**
-with 4760 angstrom and 5700 K as parameters.
-
-We solved the equation for the whole visible spectrum, but for simplicity we used the color cyan; we can locate cyan at the given wavelength 4760 Angstrom or 629'816'088'235'294 Hz.
-
-#### **Water and the ES**
-As we know, water is transparent, wich means water interactions with light are minimal in the visible spectrum; however these are the interactions we are looking for, in particular, how water interacts in liquid, gas and solid states at the given wavelength. 
-
-For simplicity, we supposed that clouds do not emit, Source function is constant equal to **0** therefore the right side of the equation was removed. So the only things we have considered were the absorptions at the given wavelength. 
+For simplicity, we suppose clouds do not emit therefore Source function is constant equal to **0**, hence the right side of the equation was removed. So the only things we have considered were the absorptions at the given wavelength. 
 
 
 
@@ -68,7 +60,6 @@ The code is divided in several components:
 
 - main.py
 - funciones.py
-- the data
 
 The main module accounts for the calls to functions, defining global parameters (such as the light speed and Boltzman constant) needed for calculations and of course the main loop in wich we integrate the solution. 
 
@@ -82,12 +73,11 @@ We show the following figure:
 
 ![result](img/rte_1.png)
 
-As we can see, the model works at certain point; we can now see how **light would be absorbed** by the cloud starting on the top. 
+As we can see, the model works; we can now see how **energy would be absorbed** by the cloud and obtained the following results:
+   - initial rayleigh: 5.724067e+03 erg / cm cm^2 ster s
+   - outcome rayleigh: 5.723630e+03 erg / cm cm^2 ster s
+   - differential: -0.4375105776480268 erg / cm cm^2 ster s
 
-We used a high-density water cloud (the absoption cooeficcient is constant). 
-
-The model tends to 0 without limit because we have not yet programmed a system wich can diferentiate the limit of the cloud. Thus, we cannot compare the **output specific intensity** 
-and cloud thickness.
 
 ## References
 
