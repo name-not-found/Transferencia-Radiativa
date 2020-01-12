@@ -9,67 +9,49 @@ c = 3e10 #cm/s
 
 def inter(x,y):
     return interp1d(x,y)
-    
+# Density Model [particles per gram]    
 def make_density_profile():
     """
-    WATER PARAMETERS:
+    WATER DENSITY PARAMETERS:
     0.9970479 g/cm3 at 25 °C [wikipedia]
     3.34e22 particles per gram (according to a molar mass of 
-    18.01528 gmol-1 [Wikipedia])
+    18.01528 gmol-1 [Wikipedia]) 
     """
+    
     mean = 3.34e22
     std = 1e2
     num_samples = 10000
-    distance = np.linspace(0,2000000,num_samples)
-    samples = np.random.normal(mean, std, size=num_samples)
-    n = inter(distance, samples)
+    densities = np.random.normal(mean, std, size=num_samples)
+    
+    # distance is in cm,
+    # sizes are:
+    # sample cloud is 100m thick (10'000 cm)
+    distance = np.linspace(0, 2e4, num_samples) # from 0 to N*dx
+    n = inter(distance, densities)
     
     return n
 
 def make_temp_profile():
     """
+    WATER TEMPERATURE PARAMETERS:
     300 K or 26.85 Celsius
     """
-    mean = 300
+     
+    mean = 300 
     std = 10
     num_samples = 10000
-    samples = np.random.normal(mean, std, size=num_samples)
-    distance = np.linspace(0,2000000, num_samples)
-    t = inter(distance, samples)
+    temps = np.random.normal(mean, std, num_samples)
+    
+    # distance is in cm,
+    # sizes are:
+    # sample cloud is 100m thick (10'000 cm)
+    distance = np.linspace(0, 2e4, num_samples)
+    t = inter(distance, temps)
 
     return t
 
 t, n = make_temp_profile(), make_density_profile()
-# Temperature Model [K]
-# def T(x):
-    # with open("T.dat", "r") as f: 
-    #     T_dat = f.readlines()
-    # z = []
-    # Tr = []
-    # for data in T_dat:
-    #     if data[0] != '#':
-    #         a,b = data.split()
-    #         z.append(float(a))
-    #         Tr.append(float(b))
-    
-    # f = interp1d(z,Tr)
-    # return t(x)
 
-# Density model [kg/m3] https://www.mentalfloss.com/article/49786/how-much-does-cloud-weigh
-# def n(x):
-    # with open("n.dat", "r") as f:
-    #     n_dat = f.readlines()
-    # z = []
-    # nr = []
-    # for data in n_dat:
-    #     if data[0] != "#":
-    #         a,b = data.split()
-    #         z.append(float(a))
-    #         nr.append(float(b))
-    
-    # f = interp1d(z,nr)
-    # return n(x)                 
-	
 # Source function [erg/cm2 sec cm ster]
 def S(x, wl):
 	# return blackbody_lambda(wl*1e8,  T(x)) * 1e8 # A-1 to cm-1
