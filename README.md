@@ -1,6 +1,12 @@
 Solving Radiative Transfer Equation to obtain cloud's width.
 ===================================
 
+## Authors
+
+- Pablo Clemente Moreno (clemnte@comunidad.unam.mx)
+- Gilberto Carlos Domínguez Aguilar (gilberto.carlos@comuniadad.unam.mx)
+- Angelica Nayeli Rivas Bedolla (angelica.nayeli@comunidad.unam.mx)
+
 ## Abstract
 
 The transfer of energy in the form of electromagnetic radiation is one of the most interesting phenomena. The fields of application are both diverse and useful. In this project we aim to solve the **radiative transfer equation to simulate the absorption of radiation by a water cloud at the microwave region (214 Ghz).**
